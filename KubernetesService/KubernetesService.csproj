@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{14101BB2-E934-4C65-8E05-8A30CC75500F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KubernetesService</RootNamespace>
+    <AssemblyName>KubernetesService</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">.\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Rest.ClientRuntime.2.3.10\lib\net452\Microsoft.Rest.ClientRuntime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\IKubernetes.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Kubernetes.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\KubernetesExtensions.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiadmissionregistrationv1alpha1AdmissionHookClientConfig.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiadmissionregistrationv1alpha1ExternalAdmissionHook.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiadmissionregistrationv1alpha1ExternalAdmissionHookConfiguration.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiadmissionregistrationv1alpha1ExternalAdmissionHookConfigurationList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiadmissionregistrationv1alpha1Initializer.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiadmissionregistrationv1alpha1InitializerConfiguration.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiadmissionregistrationv1alpha1InitializerConfigurationList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiadmissionregistrationv1alpha1Rule.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiadmissionregistrationv1alpha1RuleWithOperations.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiadmissionregistrationv1alpha1ServiceReference.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1ControllerRevision.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1ControllerRevisionList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1Deployment.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1DeploymentCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1DeploymentList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1DeploymentRollback.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1DeploymentSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1DeploymentStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1DeploymentStrategy.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1RollbackConfig.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1RollingUpdateDeployment.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1RollingUpdateStatefulSetStrategy.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1Scale.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1ScaleSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1ScaleStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1StatefulSet.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1StatefulSetList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1StatefulSetSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1StatefulSetStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta1StatefulSetUpdateStrategy.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2ControllerRevision.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2ControllerRevisionList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2DaemonSet.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2DaemonSetList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2DaemonSetSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2DaemonSetStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2DaemonSetUpdateStrategy.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2Deployment.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2DeploymentCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2DeploymentList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2DeploymentSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2DeploymentStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2DeploymentStrategy.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2ReplicaSet.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2ReplicaSetCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2ReplicaSetList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2ReplicaSetSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2ReplicaSetStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2RollingUpdateDaemonSet.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2RollingUpdateDeployment.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2RollingUpdateStatefulSetStrategy.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2Scale.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2ScaleSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2ScaleStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2StatefulSet.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2StatefulSetList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2StatefulSetSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2StatefulSetStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1beta2StatefulSetUpdateStrategy.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1DaemonSet.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1DaemonSetList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1DaemonSetSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1DaemonSetStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1DaemonSetUpdateStrategy.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiappsv1RollingUpdateDaemonSet.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthenticationv1beta1TokenReview.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthenticationv1beta1TokenReviewSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthenticationv1beta1TokenReviewStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthenticationv1beta1UserInfo.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthenticationv1TokenReview.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthenticationv1TokenReviewSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthenticationv1TokenReviewStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthenticationv1UserInfo.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1beta1LocalSubjectAccessReview.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1beta1NonResourceAttributes.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1beta1NonResourceRule.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1beta1ResourceAttributes.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1beta1ResourceRule.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1beta1SelfSubjectAccessReview.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1beta1SelfSubjectAccessReviewSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1beta1SelfSubjectRulesReview.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1beta1SelfSubjectRulesReviewSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1beta1SubjectAccessReview.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1beta1SubjectAccessReviewSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1beta1SubjectAccessReviewStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1beta1SubjectRulesReviewStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1LocalSubjectAccessReview.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1NonResourceAttributes.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1NonResourceRule.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1ResourceAttributes.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1ResourceRule.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1SelfSubjectAccessReview.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1SelfSubjectAccessReviewSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1SelfSubjectRulesReview.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1SelfSubjectRulesReviewSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1SubjectAccessReview.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1SubjectAccessReviewSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1SubjectAccessReviewStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiauthorizationv1SubjectRulesReviewStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv1CrossVersionObjectReference.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv1HorizontalPodAutoscaler.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv1HorizontalPodAutoscalerList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv1HorizontalPodAutoscalerSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv1HorizontalPodAutoscalerStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv1Scale.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv1ScaleSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv1ScaleStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv2beta1CrossVersionObjectReference.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv2beta1HorizontalPodAutoscaler.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv2beta1HorizontalPodAutoscalerCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv2beta1HorizontalPodAutoscalerList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv2beta1HorizontalPodAutoscalerSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv2beta1HorizontalPodAutoscalerStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv2beta1MetricSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv2beta1MetricStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv2beta1ObjectMetricSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv2beta1ObjectMetricStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv2beta1PodsMetricSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv2beta1PodsMetricStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv2beta1ResourceMetricSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiautoscalingv2beta1ResourceMetricStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv1beta1CronJob.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv1beta1CronJobList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv1beta1CronJobSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv1beta1CronJobStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv1beta1JobTemplateSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv1Job.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv1JobCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv1JobList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv1JobSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv1JobStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv2alpha1CronJob.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv2alpha1CronJobList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv2alpha1CronJobSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv2alpha1CronJobStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapibatchv2alpha1JobTemplateSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicertificatesv1beta1CertificateSigningRequest.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicertificatesv1beta1CertificateSigningRequestCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicertificatesv1beta1CertificateSigningRequestList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicertificatesv1beta1CertificateSigningRequestSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicertificatesv1beta1CertificateSigningRequestStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Affinity.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1AttachedVolume.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1AWSElasticBlockStoreVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1AzureDiskVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1AzureFilePersistentVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1AzureFileVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Binding.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Capabilities.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1CephFSPersistentVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1CephFSVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1CinderVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ClientIPConfig.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ComponentCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ComponentStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ComponentStatusList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ConfigMap.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ConfigMapEnvSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ConfigMapKeySelector.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ConfigMapList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ConfigMapProjection.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ConfigMapVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Container.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ContainerImage.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ContainerPort.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ContainerState.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ContainerStateRunning.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ContainerStateTerminated.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ContainerStateWaiting.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ContainerStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1DaemonEndpoint.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1DownwardAPIProjection.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1DownwardAPIVolumeFile.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1DownwardAPIVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1EmptyDirVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1EndpointAddress.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1EndpointPort.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Endpoints.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1EndpointsList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1EndpointSubset.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1EnvFromSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1EnvVar.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1EnvVarSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Event.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1EventList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1EventSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ExecAction.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1FCVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1FlexVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1FlockerVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1GCEPersistentDiskVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1GitRepoVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1GlusterfsVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Handler.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1HostAlias.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1HostPathVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1HTTPGetAction.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1HTTPHeader.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ISCSIVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1KeyToPath.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Lifecycle.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1LimitRange.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1LimitRangeItem.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1LimitRangeList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1LimitRangeSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1LoadBalancerIngress.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1LoadBalancerStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1LocalObjectReference.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1LocalVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Namespace.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NamespaceList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NamespaceSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NamespaceStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NFSVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Node.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NodeAddress.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NodeAffinity.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NodeCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NodeConfigSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NodeDaemonEndpoints.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NodeList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NodeSelector.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NodeSelectorRequirement.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NodeSelectorTerm.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NodeSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NodeStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1NodeSystemInfo.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ObjectFieldSelector.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ObjectReference.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PersistentVolume.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PersistentVolumeClaim.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PersistentVolumeClaimCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PersistentVolumeClaimList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PersistentVolumeClaimSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PersistentVolumeClaimStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PersistentVolumeClaimVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PersistentVolumeList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PersistentVolumeSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PersistentVolumeStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PhotonPersistentDiskVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Pod.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PodAffinity.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PodAffinityTerm.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PodAntiAffinity.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PodCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PodList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PodSecurityContext.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PodSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PodStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PodTemplate.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PodTemplateList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PodTemplateSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PortworxVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1PreferredSchedulingTerm.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Probe.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ProjectedVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1QuobyteVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1RBDPersistentVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1RBDVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ReplicationController.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ReplicationControllerCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ReplicationControllerList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ReplicationControllerSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ReplicationControllerStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ResourceFieldSelector.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ResourceQuota.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ResourceQuotaList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ResourceQuotaSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ResourceQuotaStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ResourceRequirements.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ScaleIOPersistentVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ScaleIOVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Secret.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1SecretEnvSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1SecretKeySelector.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1SecretList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1SecretProjection.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1SecretReference.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1SecretVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1SecurityContext.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1SELinuxOptions.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Service.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ServiceAccount.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ServiceAccountList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ServiceList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ServicePort.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ServiceSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1ServiceStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1SessionAffinityConfig.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1StorageOSPersistentVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1StorageOSVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Taint.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1TCPSocketAction.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Toleration.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1Volume.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1VolumeMount.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1VolumeProjection.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1VsphereVirtualDiskVolumeSource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapicorev1WeightedPodAffinityTerm.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsApiserverpkgapisapiextensionsv1beta1CustomResourceDefinition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsApiserverpkgapisapiextensionsv1beta1CustomResourceDefinitionCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsApiserverpkgapisapiextensionsv1beta1CustomResourceDefinitionList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsApiserverpkgapisapiextensionsv1beta1CustomResourceDefinitionNames.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsApiserverpkgapisapiextensionsv1beta1CustomResourceDefinitionSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsApiserverpkgapisapiextensionsv1beta1CustomResourceDefinitionStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsApiserverpkgapisapiextensionsv1beta1CustomResourceValidation.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsApiserverpkgapisapiextensionsv1beta1ExternalDocumentation.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsApiserverpkgapisapiextensionsv1beta1JSON.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsApiserverpkgapisapiextensionsv1beta1JSONSchemaProps.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsApiserverpkgapisapiextensionsv1beta1JSONSchemaPropsOrArray.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsApiserverpkgapisapiextensionsv1beta1JSONSchemaPropsOrBool.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsApiserverpkgapisapiextensionsv1beta1JSONSchemaPropsOrStringArray.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1AllowedHostPath.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1DaemonSet.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1DaemonSetList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1DaemonSetSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1DaemonSetStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1DaemonSetUpdateStrategy.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1Deployment.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1DeploymentCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1DeploymentList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1DeploymentRollback.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1DeploymentSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1DeploymentStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1DeploymentStrategy.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1FSGroupStrategyOptions.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1HostPortRange.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1HTTPIngressPath.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1HTTPIngressRuleValue.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1IDRange.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1Ingress.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1IngressBackend.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1IngressList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1IngressRule.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1IngressSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1IngressStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1IngressTLS.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1IPBlock.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1NetworkPolicy.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1NetworkPolicyEgressRule.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1NetworkPolicyIngressRule.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1NetworkPolicyList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1NetworkPolicyPeer.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1NetworkPolicyPort.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1NetworkPolicySpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1PodSecurityPolicy.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1PodSecurityPolicyList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1PodSecurityPolicySpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1ReplicaSet.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1ReplicaSetCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1ReplicaSetList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1ReplicaSetSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1ReplicaSetStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1RollbackConfig.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1RollingUpdateDaemonSet.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1RollingUpdateDeployment.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1RunAsUserStrategyOptions.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1Scale.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1ScaleSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1ScaleStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1SELinuxStrategyOptions.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapiextensionsv1beta1SupplementalGroupsStrategyOptions.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1APIGroup.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1APIGroupList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1APIResource.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1APIResourceList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1APIVersions.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1DeleteOptions.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1GroupVersionForDiscovery.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1Initializer.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1Initializers.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1LabelSelector.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1LabelSelectorRequirement.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1ListMeta.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1ObjectMeta.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1OwnerReference.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1Preconditions.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1ServerAddressByClientCIDR.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1Status.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1StatusCause.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1StatusDetails.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgapismetav1WatchEvent.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgruntimeRawExtension.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapimachinerypkgversionInfo.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapinetworkingv1IPBlock.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapinetworkingv1NetworkPolicy.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapinetworkingv1NetworkPolicyEgressRule.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapinetworkingv1NetworkPolicyIngressRule.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapinetworkingv1NetworkPolicyList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapinetworkingv1NetworkPolicyPeer.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapinetworkingv1NetworkPolicyPort.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapinetworkingv1NetworkPolicySpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapipolicyv1beta1Eviction.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapipolicyv1beta1PodDisruptionBudget.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapipolicyv1beta1PodDisruptionBudgetList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapipolicyv1beta1PodDisruptionBudgetSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapipolicyv1beta1PodDisruptionBudgetStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1alpha1ClusterRole.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1alpha1ClusterRoleBinding.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1alpha1ClusterRoleBindingList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1alpha1ClusterRoleList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1alpha1PolicyRule.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1alpha1Role.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1alpha1RoleBinding.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1alpha1RoleBindingList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1alpha1RoleList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1alpha1RoleRef.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1alpha1Subject.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1beta1ClusterRole.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1beta1ClusterRoleBinding.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1beta1ClusterRoleBindingList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1beta1ClusterRoleList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1beta1PolicyRule.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1beta1Role.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1beta1RoleBinding.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1beta1RoleBindingList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1beta1RoleList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1beta1RoleRef.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1beta1Subject.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1ClusterRole.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1ClusterRoleBinding.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1ClusterRoleBindingList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1ClusterRoleList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1PolicyRule.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1Role.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1RoleBinding.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1RoleBindingList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1RoleList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1RoleRef.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapirbacv1Subject.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapischedulingv1alpha1PriorityClass.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapischedulingv1alpha1PriorityClassList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapisettingsv1alpha1PodPreset.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapisettingsv1alpha1PodPresetList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapisettingsv1alpha1PodPresetSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapistoragev1beta1StorageClass.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapistoragev1beta1StorageClassList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapistoragev1StorageClass.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8sapistoragev1StorageClassList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8skubeAggregatorpkgapisapiregistrationv1beta1APIService.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8skubeAggregatorpkgapisapiregistrationv1beta1APIServiceCondition.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8skubeAggregatorpkgapisapiregistrationv1beta1APIServiceList.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8skubeAggregatorpkgapisapiregistrationv1beta1APIServiceSpec.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8skubeAggregatorpkgapisapiregistrationv1beta1APIServiceStatus.cs" />
+    <Compile Include="Source\CSharp_Kubernetes\Models\Iok8skubeAggregatorpkgapisapiregistrationv1beta1ServiceReference.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Source\BUILD.ps1" />
+    <None Include="Source\REBUILD.ps1" />
+    <None Include="Source\swagger.json" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

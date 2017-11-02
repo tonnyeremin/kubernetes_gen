@@ -581,7 +581,7 @@
     <RemoveDir Directories="$(PackageDir)" />
     <MakeDir Directories="$(PackageDir)" />
     <Exec WorkingDirectory="$(SolutionDir)" Command="NuGet.exe pack  -Properties title=Pre-compiled .Net API for Kubernates;projectUrl=https://github.com/tonnyeremin/kubernetes_gen; licenseUrl=https://raw.githubusercontent.com/tonnyeremin/kubernetes_gen/master/LICENSE; iconUrl=https://github.com/kubernetes/kubernetes/blob/master/logo/logo.png?raw=true; copyright=Anton Eremin 2017; tags=Kubernetes .Net API    
-		  -OutputDir &quot;$(PackageDir)&quot; -Version %(OutputAssemblyInfo.Version)" />
+		  -OutputDir &quot;$(PackageDir)&quot; -Version %(OutputAssemblyInfo.Version) -id $(AssemblyName)"/>
   </Target>
   <PropertyGroup>
     <PostBuildEvent>

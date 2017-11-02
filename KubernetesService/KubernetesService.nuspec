@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/tonnyeremin/kubernetes_gen</licenseUrl>
+    <projectUrl>https://github.com/tonnyeremin/kubernetes_gen</projectUrl>
+    <iconUrl>https://github.com/kubernetes/kubernetes/blob/master/logo/logo.png?raw=true</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright Anton Eremin 2017</copyright>
+    <tags>Kubernetes .Net API</tags>
+  </metadata>
+</package>

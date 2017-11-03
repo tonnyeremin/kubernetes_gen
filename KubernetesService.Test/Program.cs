@@ -10,13 +10,7 @@ namespace KubernetesService.Test
     {
         static void Main(string[] args)
         {
-            using (
-                CKubernetesService service =
-                    new CKubernetesService(new Uri(@"https:\\kubeclu-kube-782436mgmt.westeurope.cloudapp.azure.com"),
-                        new CCurrentUserConfigurartionReader()))
-            {
-              string version =  service.Instance.GetAPIVersions().ApiVersion;
-            }
+            
         }
     }
 }

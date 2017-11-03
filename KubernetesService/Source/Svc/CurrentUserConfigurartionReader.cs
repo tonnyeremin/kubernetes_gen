@@ -9,9 +9,14 @@ using KubernetesService;
 
 namespace KubernetesService
 {
-    public class CCurrentUserConfigurartionReader : IConfigurationReader
+    public class CConfigurartionProviderUserProfile : IConfigurationProvider
     {
-        public CKubernatesConfig Read()
+        public CConfigurartionProviderUserProfile()
+        {
+
+        }
+
+        public CKubernatesConfig GetConfiguration()
         {
             var userDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             var kubernetesUserCfg = string.Format(@"{0}\.kube\config", userDir);
@@ -24,5 +29,7 @@ namespace KubernetesService
                 }
             }
         }
+
+       
     }
 }

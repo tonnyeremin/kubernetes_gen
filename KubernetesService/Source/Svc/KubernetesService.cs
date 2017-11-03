@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
@@ -14,17 +15,24 @@ namespace KubernetesService
     public class CKubernetesService :  IDisposable
     {
         private readonly IKubernetes _serviceImpl;
-        private readonly CKubernatesConfig _config;
-        private readonly HttpClientHandler _handler;
+        private readonly WebRequestHandler _handler;
 
-        public CKubernetesService(Uri baseUri, IConfigurationReader reader)
+        public CKubernetesService(CKubernetesSslConnectionSpec sslConnectionSpec)
         {
-  
-            _config = reader.Read();
-            _handler = new HttpClientHandler();
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            _serviceImpl = new Kubernetes(baseUri, _handler);
-          
+            _handler = new WebRequestHandler();
+            _handler.ClientCertificateOptions = ClientCertificateOption.Manual;
+            _handler.ClientCertificates.Add(sslConnectionSpec.Certificate);
+            _handler.ServerCertificateValidationCallback = CertificateValidationCallBack;
+            _serviceImpl = new Kubernetes(new Uri(sslConnectionSpec.HostName), _handler);
+            ServiceClient<Kubernetes> svc = _serviceImpl as ServiceClient<Kubernetes>;
+        }
+
+        public static CKubernetesService Connect()
+        {
+            return null;
         }
 
         public IKubernetes Instance

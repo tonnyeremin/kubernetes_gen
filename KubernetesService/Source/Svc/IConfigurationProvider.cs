@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace KubernetesService
 {
-    public interface IConfigurationReader
+    public interface IConfigurationProvider
     {
-        CKubernatesConfig Read();
+        CKubernatesConfig GetConfiguration();
     }
 }

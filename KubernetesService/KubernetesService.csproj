@@ -73,6 +73,10 @@
     <PackageDir>Package\$(Configuration)</PackageDir>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Rest.ClientRuntime.2.3.10\lib\net452\Microsoft.Rest.ClientRuntime.dll</HintPath>
       <Private>True</Private>
@@ -554,6 +558,7 @@
     <Compile Include="Source\CSharp_Kubernetes\Models\Iok8skubeAggregatorpkgapisapiregistrationv1beta1APIServiceSpec.cs" />
     <Compile Include="Source\CSharp_Kubernetes\Models\Iok8skubeAggregatorpkgapisapiregistrationv1beta1APIServiceStatus.cs" />
     <Compile Include="Source\CSharp_Kubernetes\Models\Iok8skubeAggregatorpkgapisapiregistrationv1beta1ServiceReference.cs" />
+    <Compile Include="Source\KubernetesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -563,7 +568,9 @@
     <None Include="Source\REBUILD.ps1" />
     <None Include="Source\swagger.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Source\Utils\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

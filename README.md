@@ -48,7 +48,6 @@ For extending authentification functionality you have to implement two interface
    Kubernetes offcially support SSL/TLS, user\password pair, OAuth token 
    Currently implemented SSL/TLS in this realese. Other scenarios planned for future
 ``` csharp
-//
     public interface IAuthenticationProvider
     {
         IConfigurationProvider ConfigurationProvider { get; }
@@ -58,7 +57,7 @@ For extending authentification functionality you have to implement two interface
 ```
  *Note: parameter Uri endPoint have exactly match cluser endpoint for configuration*
  
- ##support
+ ## Support
 
 All question you can address to project's [mailing list](https://groups.google.com/d/forum/net-kubernetes-api-mailing-list) 
 

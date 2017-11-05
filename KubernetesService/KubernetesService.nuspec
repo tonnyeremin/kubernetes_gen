@@ -6,12 +6,13 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <licenseUrl>https://github.com/tonnyeremin/kubernetes_gen</licenseUrl>
-    <projectUrl>https://github.com/tonnyeremin/kubernetes_gen</projectUrl>
+    <licenseUrl>https://raw.githubusercontent.com/tonnyeremin/kubernetes_gen/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/tonnyeremin/kubernetes_gen/blob/master/README.md</projectUrl>
     <iconUrl>https://github.com/kubernetes/kubernetes/blob/master/logo/logo.png?raw=true</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <copyright>Copyright Anton Eremin 2017</copyright>
+    <copyright>Copyright 2017 Anton Eremin</copyright>
     <tags>Kubernetes .Net API</tags>
+    <releaseNotes></releaseNotes>
   </metadata>
 </package>

@@ -10,7 +10,18 @@ namespace KubernetesService.Test
     {
         static void Main(string[] args)
         {
-            
+            string uri = "<Put cluster url here>";
+               
+            IConfigurationProvider configurartionProvider = new CConfigurartionProviderUserProfile();
+            IAuthenticationProvider authenticationProvider = new CSSLAuthenticationProvider(configurartionProvider);
+
+            using (var service = CKubernetesService.Connect(new Uri(uri), authenticationProvider))
+            {
+                
+                Console.WriteLine(service.Version);
+            }
+
+            Console.ReadLine();
         }
     }
 }

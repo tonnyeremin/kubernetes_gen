@@ -12,49 +12,84 @@ using Microsoft.Rest;
 
 namespace KubernetesService
 {
-    public class CKubernetesService :  IDisposable
+    public enum EVersion
     {
-        private readonly IKubernetes _serviceImpl;
+        Undefined = 0,
+        V1 = 1
+    }
+
+    public class CKubernetesService : IDisposable
+    {
         private readonly WebRequestHandler _handler;
+        private readonly IAuthenticationProvider _authenticationProvider;
 
-        public CKubernetesService(CKubernetesSslConnectionSpec sslConnectionSpec)
+        private IKubernetes _serviceImpl;
+        private EVersion _version;
+
+        private CKubernetesService(IAuthenticationProvider authenticationProvider)
         {
-            ServicePointManager.Expect100Continue = true;
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
             _handler = new WebRequestHandler();
-            _handler.ClientCertificateOptions = ClientCertificateOption.Manual;
-            _handler.ClientCertificates.Add(sslConnectionSpec.Certificate);
-            _handler.ServerCertificateValidationCallback = CertificateValidationCallBack;
-            _serviceImpl = new Kubernetes(new Uri(sslConnectionSpec.HostName), _handler);
-            ServiceClient<Kubernetes> svc = _serviceImpl as ServiceClient<Kubernetes>;
+            _authenticationProvider = authenticationProvider;
         }
 
-        public static CKubernetesService Connect()
+        public static CKubernetesService Connect(Uri endpoint, IAuthenticationProvider authenticationProvider)
         {
-            return null;
+            try
+            {
+                CKubernetesService service = new CKubernetesService(authenticationProvider);
+                service.Connect(endpoint);
+                return service;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(string.Format("Unbale to connect to API service: {0}", endpoint.AbsoluteUri), ex);
+            }
         }
 
-        public IKubernetes Instance
+        public IKubernetes Service
         {
             get { return _serviceImpl; }
         }
-        
+
+        public EVersion Version
+        {
+            get { return _version; }
+        }
+
+        private void Connect(Uri endpoint)
+        {
+            _authenticationProvider.ApplyConfiguration(endpoint, _handler);
+            _serviceImpl = new Kubernetes(endpoint, _handler);
+            _version = GetVersion(_serviceImpl);
+
+        }
+
+        private EVersion GetVersion(IKubernetes serviceImpl)
+        {
+            try
+            {
+                var version = serviceImpl.GetAPIVersions();
+                switch (version.ApiVersion)
+                {
+                    case "v1":
+                        return EVersion.V1;
+                    default:
+                        return EVersion.Undefined;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Failed to get service version.", ex);
+            }
+        }
+
         public void Dispose()
         {
             _serviceImpl.Dispose();
             _handler.Dispose();
         }
 
-        private bool CertificateValidationCallBack(
-                     object sender,
-                     X509Certificate certificate,
-                     X509Chain chain,
-                     SslPolicyErrors sslPolicyErrors)
-        {
 
-            return true;
-        }
     }
 
 }

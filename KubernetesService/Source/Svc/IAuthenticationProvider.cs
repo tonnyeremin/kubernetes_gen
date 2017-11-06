@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Rest;
 
 namespace KubernetesService
 {
@@ -14,11 +15,6 @@ namespace KubernetesService
     {
         IConfigurationProvider ConfigurationProvider { get; }
 
-        /// <summary>
-        /// Applying configuration to service client http handler.
-        /// </summary>
-        /// <param name="endPoint">Cluster endpoint</param>
-        /// <param name="handler">Service client http handler</param>
         void ApplyConfiguration(Uri endPoint, WebRequestHandler handler);
     }
 }

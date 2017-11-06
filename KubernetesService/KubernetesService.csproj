@@ -110,7 +110,7 @@
     <Compile Include="Source\Svc\IAuthenticationProvider.cs" />
     <Compile Include="Source\Svc\IConfigurationProvider.cs" />
     <Compile Include="Source\Configuration\KubernatesConfig.cs" />
-    <Compile Include="Source\Svc\KubernetesConnectionSpec.cs" />
+    <Compile Include="Source\Svc\KubernetesSSLConnectionSpec.cs" />
     <Compile Include="Source\Configuration\User.cs" />
     <Compile Include="Source\Configuration\UserCredentials.cs" />
     <Compile Include="Source\CSharp_Kubernetes\IKubernetes.cs" />
@@ -562,6 +562,8 @@
     <Compile Include="Source\CSharp_Kubernetes\Models\Iok8skubeAggregatorpkgapisapiregistrationv1beta1APIServiceStatus.cs" />
     <Compile Include="Source\CSharp_Kubernetes\Models\Iok8skubeAggregatorpkgapisapiregistrationv1beta1ServiceReference.cs" />
     <Compile Include="Source\Svc\KubernetesService.cs" />
+    <Compile Include="Source\Svc\KubernetesTokenConnectionSpec.cs" />
+    <Compile Include="Source\Svc\OAuthTokenAuthentificationProvider.cs" />
     <Compile Include="Source\Svc\SSLAuthenticationProvider.cs" />
   </ItemGroup>
   <ItemGroup>

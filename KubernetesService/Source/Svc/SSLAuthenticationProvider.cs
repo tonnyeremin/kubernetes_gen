@@ -7,6 +7,7 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Rest;
 
 namespace KubernetesService
 {
@@ -31,11 +32,10 @@ namespace KubernetesService
 
                 if (spec.HostName != endPoint.AbsoluteUri.TrimEnd('/'))
                     throw new Exception(string.Format("Configuration not found for {0}", endPoint.AbsoluteUri));
-
+               
                 handler.ClientCertificateOptions = ClientCertificateOption.Manual;
                 handler.ClientCertificates.Add(spec.Certificate);
                 handler.ServerCertificateValidationCallback = CertificateValidationCallBack;
-   
             }
             catch (Exception ex)
             {

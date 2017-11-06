@@ -39,12 +39,30 @@ namespace KubernetesService
                 CKubernatesConfig config = yamlDesrializer.Deserialize<CKubernatesConfig>(congfigStr);
                 return config;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(string.Format("Configuration parser error: {0}", ex.Message), ex);
             }
 
 
+        }
+        public Boolean TryGetCurrentContext(out CUser user, out CCluster cluster)
+        {
+            user = null;
+            cluster = null;
+
+            try
+            {
+                string contextName = CurrentContext;
+                CContext context = Contexts.FirstOrDefault(c => c.Name == contextName);
+                cluster = Clusters.FirstOrDefault(c => c.Name == context.ContextDetails.Cluster);
+                user = Users.FirstOrDefault(u => u.Name == context.ContextDetails.User);
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+            return true;
         }
     }
 

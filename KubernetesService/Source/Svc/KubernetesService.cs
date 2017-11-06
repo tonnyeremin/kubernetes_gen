@@ -60,9 +60,10 @@ namespace KubernetesService
         private void Connect(Uri endpoint)
         {
             _authenticationProvider.ApplyConfiguration(endpoint, _handler);
-            _serviceImpl = new Kubernetes(endpoint, _handler, new JsonDelegatingHandler());
-            _version = GetVersion(_serviceImpl);
 
+            _serviceImpl = new Kubernetes(endpoint, _handler, new JsonDelegatingHandler());
+           
+            _version = GetVersion(_serviceImpl);
 
         }
 
@@ -100,11 +101,12 @@ namespace KubernetesService
         protected override Task<HttpResponseMessage> SendAsync(
             HttpRequestMessage request, System.Threading.CancellationToken cancellationToken)
         {
+           // request.Headers.Add("Accept", "application/json");
             if (request.Content != null)
             {
-                request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                request.Content = new StringContent(request.Content.ToString(), Encoding.UTF8,
-                    "application/json");
+                
+                request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+               // request.Content.Headers.ContentEncoding =  
             }
             return base.SendAsync(request, cancellationToken);
 

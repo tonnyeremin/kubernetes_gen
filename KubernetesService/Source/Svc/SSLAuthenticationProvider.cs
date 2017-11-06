@@ -35,6 +35,7 @@ namespace KubernetesService
                 handler.ClientCertificateOptions = ClientCertificateOption.Manual;
                 handler.ClientCertificates.Add(spec.Certificate);
                 handler.ServerCertificateValidationCallback = CertificateValidationCallBack;
+   
             }
             catch (Exception ex)
             {

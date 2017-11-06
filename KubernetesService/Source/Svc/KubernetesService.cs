@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -59,8 +60,9 @@ namespace KubernetesService
         private void Connect(Uri endpoint)
         {
             _authenticationProvider.ApplyConfiguration(endpoint, _handler);
-            _serviceImpl = new Kubernetes(endpoint, _handler);
+            _serviceImpl = new Kubernetes(endpoint, _handler, new JsonDelegatingHandler());
             _version = GetVersion(_serviceImpl);
+
 
         }
 
@@ -87,6 +89,25 @@ namespace KubernetesService
         {
             _serviceImpl.Dispose();
             _handler.Dispose();
+        }
+
+
+    }
+
+    public class JsonDelegatingHandler : DelegatingHandler
+    {
+
+        protected override Task<HttpResponseMessage> SendAsync(
+            HttpRequestMessage request, System.Threading.CancellationToken cancellationToken)
+        {
+            if (request.Content != null)
+            {
+                request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                request.Content = new StringContent(request.Content.ToString(), Encoding.UTF8,
+                    "application/json");
+            }
+            return base.SendAsync(request, cancellationToken);
+
         }
 
 

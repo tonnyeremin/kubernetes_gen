@@ -55,6 +55,7 @@ Global
 		{09B49BB2-5805-4883-A51F-45E6607E086E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{09B49BB2-5805-4883-A51F-45E6607E086E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{09B49BB2-5805-4883-A51F-45E6607E086E}.Release|x64.ActiveCfg = Release|x64
+		{09B49BB2-5805-4883-A51F-45E6607E086E}.Release|x64.Build.0 = Release|x64
 		{09B49BB2-5805-4883-A51F-45E6607E086E}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
